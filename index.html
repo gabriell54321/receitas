@@ -2,33 +2,47 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>50 Receitas Fit - Transforme sua Dieta com Sabor</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-</html>
 <body>
+    <!-- Menu Mobile -->
+    <div class="mobile-menu">
+        <button class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="mobile-nav" id="mobile-nav">
+            <a href="#oferta">Comprar</a>
+            <a href="#beneficios">Benefícios</a>
+            <a href="#receitas">Receitas</a>
+            <a href="#duvidas">Dúvidas</a>
+            <a href="mailto:suporteeecontato@gmail.com">Suporte</a>
+        </div>
+    </div>
+
     <header class="hero">
         <div class="container">
-            <h1>50 Receitas Fit Para Transformar Sua Dieta</h1>
-            <p class="subtitle">Descubra como manter uma alimentação saudável sem abrir mão do sabor</p>
+            <h1>50 Receitas Fit para Transformar sua Dieta</h1>
+            <p class="subtitle">Descubra como emagrecer com saúde sem abrir mão do sabor</p>
             <div class="cta-container">
-                <a href="#oferta" class="cta-button">Quero meu ebook agora!</a>
+                <a href="https://pay.cakto.com.br/3fupip4_518014" class="cta-button">Quero meu ebook agora!</a>
             </div>
         </div>
     </header>
 
-    <section class="benefits">
+    <section id="beneficios" class="benefits">
         <div class="container">
             <h2>O que você vai conquistar com este ebook:</h2>
             <div class="benefits-grid">
                 <div class="benefit-item">
-                    <div class="benefit-icon">📚</div>
+                    <div class="benefit-icon">🍽️</div>
                     <h3>Variedade</h3>
-                    <p>50 receitas cuidadosamente selecionadas para diversificar seu cardápio</p>
+                    <p>50 receitas diferentes para nunca ficar sem opções saborosas</p>
                 </div>
                 <div class="benefit-item">
                     <div class="benefit-icon">⏱️</div>
@@ -36,9 +50,9 @@
                     <p>Receitas rápidas e fáceis para o dia a dia corrido</p>
                 </div>
                 <div class="benefit-item">
-                    <div class="benefit-icon">🥗</div>
-                    <h3>Nutrição</h3>
-                    <p>Refeições balanceadas que nutrem seu corpo</p>
+                    <div class="benefit-icon">💪</div>
+                    <h3>Resultados</h3>
+                    <p>Combinado com exercícios, ajuda a alcançar seus objetivos fitness</p>
                 </div>
                 <div class="benefit-item">
                     <div class="benefit-icon">💰</div>
@@ -49,51 +63,25 @@
         </div>
     </section>
 
-    <section class="about-ebook">
+    <section id="receitas" class="preview">
         <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>O que você vai encontrar neste ebook?</h2>
-                    <p>Este não é apenas mais um livro de receitas. É um guia completo para quem quer transformar sua alimentação sem sofrimento.</p>
-                    <ul>
-                        <li>Cafés da manhã energéticos para começar o dia com disposição</li>
-                        <li>Lanches práticos para levar para o trabalho ou faculdade</li>
-                        <li>Almoços completos e nutritivos</li>
-                        <li>Jantares leves mas saborosos</li>
-                        <li>Sobremesas que cabem na sua dieta</li>
-                    </ul>
+            <h2>Uma amostra do que você vai encontrar:</h2>
+            <div class="preview-grid">
+                <div class="preview-item">
+                    <img src="receita1.jpg" alt="Nome da Receita 1" class="recipe-image">
+                    <p>Nome da Receita 1</p>
                 </div>
-                <div class="about-image">
-                    <!-- IMG: Foto do ebook -->
-                    <img src="assets/ebook-imagem.jpg" alt="Ebook 50 Receitas Fit" class="ebook-image">
+                <div class="preview-item">
+                    <img src="receita2.jpg" alt="Nome da Receita 2" class="recipe-image">
+                    <p>Nome da Receita 2</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="recipe-showcase">
-        <div class="container">
-            <h2>Um pouco do que você vai aprender a preparar:</h2>
-            <div class="recipe-grid">
-                <div class="recipe-item">
-                    <!-- IMG: Foto da receita 1 -->
-                    <img src="assets/receita1.jpg" alt="Panqueca de Banana Fit" class="recipe-image">
-                    <h3>Panqueca de Banana Fit</h3>
+                <div class="preview-item">
+                    <img src="receita3.jpg" alt="Nome da Receita 3" class="recipe-image">
+                    <p>Nome da Receita 3</p>
                 </div>
-                <div class="recipe-item">
-                    <!-- IMG: Foto da receita 2 -->
-                    <img src="assets/receita2.jpg" alt="Strogonoff de Frango Light" class="recipe-image">
-                    <h3>Strogonoff de Frango Light</h3>
-                </div>
-                <div class="recipe-item">
-                    <!-- IMG: Foto da receita 3 -->
-                    <img src="assets/receita3.jpg" alt="Bolo de Chocolate Proteico" class="recipe-image">
-                    <h3>Bolo de Chocolate Proteico</h3>
-                </div>
-                <div class="recipe-item">
-                    <!-- IMG: Foto da receita 4 -->
-                    <img src="assets/receita4.jpg" alt="Salada Caesar Fit" class="recipe-image">
-                    <h3>Salada Caesar Fit</h3>
+                <div class="preview-item">
+                    <img src="receita4.jpg" alt="Nome da Receita 4" class="recipe-image">
+                    <p>Nome da Receita 4</p>
                 </div>
             </div>
         </div>
@@ -103,46 +91,51 @@
         <div class="container">
             <h2>Adquira agora seu ebook exclusivo!</h2>
             <div class="offer-content">
-                <div class="offer-image">
-                    <!-- IMG: Foto do ebook para a seção de oferta -->
-                    <img src="assets/ebook-imagem.jpg" alt="Ebook 50 Receitas Fit" class="ebook-image">
+                <div class="ebook-cover">
+                    <img src="capa-ebook.jpg" alt="Capa do Ebook 50 Receitas Fit" class="ebook-image">
                 </div>
                 <div class="offer-details">
-                    <div class="price-container">
-                        <span class="original-price">De R$ 97,00</span>
-                        <span class="current-price">Por apenas R$ 47,00</span>
-                    </div>
-                    <p>Um investimento que se paga com a primeira semana de alimentação saudável em casa!</p>
-                    <ul class="offer-benefits">
-                        <li>✔️ Acesso imediato após a compra</li>
-                        <li>✔️ Formato PDF compatível com qualquer dispositivo</li>
-                        <li>✔️ 50 receitas testadas e aprovadas</li>
-                        <li>✔️ Bônus exclusivo: Guia de substituições saudáveis</li>
+                    <ul class="offer-list">
+                        <li>✅ 50 receitas testadas e aprovadas</li>
+                        <li>✅ Ingredientes acessíveis</li>
+                        <li>✅ Passo a passo detalhado</li>
+                        <li>✅ Informação nutricional de cada receita</li>
+                        <li>✅ Bônus: Guia de substituições saudáveis</li>
                     </ul>
-                    <a href="#" class="cta-button" id="buy-button">Comprar Agora</a>
-                    <div class="secure-checkout">
-                        <!-- IMG: Ícone de segurança -->
-                        <img src="assets/secure-icon.png" alt="Ícone de segurança">
-                        <span>Compra 100% segura</span>
+                    <div class="price-container">
+                        <p class="old-price">De: R$ 97,00</p>
+                        <p class="new-price">Por apenas: R$ 47,00</p>
+                        <p class="installment">ou 5x de R$ 9,40 sem juros</p>
                     </div>
+                    <a href="https://pay.cakto.com.br/3fupip4_518014" class="cta-button">Comprar Agora</a>
+                    <div class="support-info">
+                        <p><i class="fas fa-envelope"></i> suporteeecontato@gmail.com</p>
+                    </div>
+                    <p class="guarantee">⚠️ Oferta válida por tempo limitado</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="faq">
+    <section id="duvidas" class="faq">
         <div class="container">
             <h2>Perguntas Frequentes</h2>
             <div class="faq-item">
                 <button class="faq-question">Como receberei o ebook após a compra?</button>
                 <div class="faq-answer">
-                    <p>Imediatamente após a confirmação do pagamento, você receberá um e-mail com o link para download do ebook em formato PDF.</p>
+                    <p>Imediatamente após a confirmação do pagamento, você receberá um e-mail com o link para download do ebook em formato PDF. Não há espera e nem custos adicionais com frete.</p>
                 </div>
             </div>
             <div class="faq-item">
                 <button class="faq-question">Posso imprimir as receitas?</button>
                 <div class="faq-answer">
-                    <p>Sim! O arquivo PDF foi projetado para ser impresso facilmente, caso você prefira ter uma cópia física.</p>
+                    <p>Sim! O arquivo PDF pode ser impresso para seu uso pessoal, facilitando o acesso às receitas na sua cozinha.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">As receitas são adequadas para iniciantes na cozinha?</button>
+                <div class="faq-answer">
+                    <p>Com certeza! Todas as receitas foram desenvolvidas para serem fáceis de preparar, com instruções passo a passo detalhadas.</p>
                 </div>
             </div>
         </div>
@@ -150,8 +143,24 @@
 
     <footer>
         <div class="container">
-            <p>© 2023 50 Receitas Fit - Todos os direitos reservados</p>
-            <p>Este produto não substitui o acompanhamento de um profissional de saúde. Consulte seu nutricionista ou médico antes de iniciar qualquer dieta.</p>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-envelope"></i> suporteeecontato@gmail.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Formas de Pagamento</h3>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-pix"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2023 50 Receitas Fit - Todos os direitos reservados</p>
+                <p>Este produto não substitui o acompanhamento de um profissional de saúde. Consulte seu nutricionista ou médico antes de iniciar qualquer dieta.</p>
+            </div>
         </div>
     </footer>
 

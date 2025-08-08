@@ -1,9 +1,8 @@
-/* Reset e Estilos Base - Mobile First */
+/* Reset e Estilos Base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -14,82 +13,118 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3 {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    color: #2a2a2a;
 }
 
 .container {
     width: 95%;
-    max-width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
 }
 
-/* Hero Section Mobile */
+/* Menu Mobile */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2E7D32;
+    z-index: 1000;
+    padding: 15px;
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    background-color: #2E7D32;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 60px;
+    padding: 15px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.mobile-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.mobile-nav a:last-child {
+    border-bottom: none;
+}
+
+/* Hero Section */
 .hero {
-    background: linear-gradient(135deg, rgba(106, 168, 79, 0.8), rgba(56, 134, 89, 0.8)), url('assets/hero-bg-mobile.jpg') no-repeat center center/cover;
+    background: linear-gradient(135deg, rgba(106, 168, 79, 0.9), rgba(56, 134, 89, 0.9)), url('hero-bg.jpg') no-repeat center center/cover;
     color: white;
     text-align: center;
     padding: 80px 0 60px;
-    position: relative;
-    min-height: 70vh;
-    display: flex;
-    align-items: center;
+    margin-bottom: 30px;
 }
 
 .hero h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 15px;
-    line-height: 1.3;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    padding: 0 10px;
 }
 
 .subtitle {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
+    font-size: 1rem;
+    margin-bottom: 25px;
     font-weight: 400;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    padding: 0 10px;
 }
 
-/* Botão CTA Mobile */
+/* Botão CTA */
 .cta-button {
     display: inline-block;
     background-color: #FF6B6B;
     color: white;
-    padding: 14px 28px;
+    padding: 12px 25px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    border: 2px solid #FF8E8E;
-    width: 90%;
-    max-width: 280px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
     margin: 0 auto;
 }
 
 .cta-button:hover {
     background-color: #FF5252;
     transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* Seção de Benefícios Mobile */
+/* Seção de Benefícios */
 .benefits {
-    padding: 50px 0;
+    padding: 40px 0;
+    text-align: center;
     background-color: #FFF5F5;
 }
 
 .benefits h2 {
-    text-align: center;
     margin-bottom: 30px;
-    font-size: 1.6rem;
-    color: #4a6b3d;
+    font-size: 1.5rem;
+    color: #2E7D32;
 }
 
 .benefits-grid {
@@ -99,350 +134,314 @@ h1, h2, h3, h4 {
 }
 
 .benefit-item {
-    text-align: center;
-    padding: 25px 15px;
+    background: white;
+    padding: 20px 15px;
     border-radius: 10px;
-    background-color: white;
-    transition: transform 0.3s ease;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     border-top: 4px solid #FF6B6B;
-    margin: 0 10px;
+}
+
+.benefit-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .benefit-icon {
     font-size: 2rem;
-    margin-bottom: 15px;
-    color: #4CAF50;
+    margin-bottom: 10px;
+    color: #2E7D32;
 }
 
 .benefit-item h3 {
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-    color: #4a6b3d;
-}
-
-/* Sobre o Ebook Mobile */
-.about-ebook {
-    padding: 50px 0;
-    background-color: #F0F7F4;
-}
-
-.about-content {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.about-text {
-    order: 2;
-}
-
-.about-image {
-    order: 1;
-    text-align: center;
-}
-
-.about-ebook h2 {
-    margin-bottom: 20px;
-    font-size: 1.6rem;
-    color: #4a6b3d;
-    text-align: center;
-}
-
-.about-ebook p {
-    margin-bottom: 15px;
-    font-size: 1rem;
-    color: #555;
-    text-align: center;
-}
-
-.about-ebook ul {
-    margin: 20px 0;
-    padding-left: 20px;
-}
-
-.about-ebook li {
     margin-bottom: 8px;
-    font-size: 1rem;
-    color: #555;
-    position: relative;
-    padding-left: 25px;
-    text-align: left;
+    color: #FF6B6B;
+    font-size: 1.2rem;
 }
 
-.ebook-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    border: 5px solid white;
-    max-width: 300px;
-    margin: 0 auto;
-}
-
-/* Mostruário de Receitas Mobile */
-.recipe-showcase {
-    padding: 50px 0;
-    background-color: #FFF5F5;
-}
-
-.recipe-showcase h2 {
+/* Seção de Preview */
+.preview {
+    padding: 40px 0;
+    background-color: #F0FFF4;
     text-align: center;
+}
+
+.preview h2 {
     margin-bottom: 30px;
-    font-size: 1.6rem;
-    color: #4a6b3d;
+    font-size: 1.5rem;
+    color: #2E7D32;
 }
 
-.recipe-grid {
+.preview-grid {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 0 10px;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
 }
 
-.recipe-item {
-    text-align: center;
+.preview-item {
     background: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-    margin: 0 5px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.preview-item:hover {
+    transform: scale(1.03);
 }
 
 .recipe-image {
     width: 100%;
-    height: 180px;
+    height: 120px;
     object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    border: 3px solid #F0F7F4;
+    border-radius: 5px;
+    margin-bottom: 8px;
 }
 
-.recipe-item h3 {
-    font-size: 1.1rem;
-    color: #4a6b3d;
+.preview-item p {
+    font-size: 0.9rem;
 }
 
-/* Oferta Mobile */
+/* Oferta */
 .offer {
-    padding: 50px 0;
-    background-color: #F0F7F4;
+    padding: 40px 0;
+    text-align: center;
+    background-color: #FFF5F5;
 }
 
 .offer h2 {
-    text-align: center;
     margin-bottom: 30px;
-    font-size: 1.6rem;
-    color: #4a6b3d;
+    font-size: 1.5rem;
+    color: #2E7D32;
 }
 
 .offer-content {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    background-color: white;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    border-left: 5px solid #FF6B6B;
-    margin: 0 10px;
+    gap: 25px;
 }
 
-.offer-image {
-    order: 1;
-    text-align: center;
+.ebook-cover {
+    display: flex;
+    justify-content: center;
 }
 
-.offer-details {
-    order: 2;
+.ebook-image {
+    width: 200px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border: 4px solid white;
+}
+
+.offer-list {
+    list-style: none;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.offer-list li {
+    margin-bottom: 12px;
+    padding-left: 25px;
+    position: relative;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.offer-list li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 18px;
+    height: 18px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FF6B6B"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>');
+    background-repeat: no-repeat;
 }
 
 .price-container {
     margin: 20px 0;
-    text-align: center;
 }
 
-.original-price {
+.old-price {
     text-decoration: line-through;
     color: #999;
-    font-size: 1.1rem;
-    margin-right: 10px;
+    font-size: 1rem;
 }
 
-.current-price {
+.new-price {
     font-size: 1.8rem;
     font-weight: 700;
     color: #FF6B6B;
 }
 
-.offer-benefits {
-    margin: 20px 0;
-    list-style-type: none;
-    padding: 0 15px;
-}
-
-.offer-benefits li {
-    margin-bottom: 8px;
-    padding-left: 30px;
-    position: relative;
+.installment {
     font-size: 1rem;
-    color: #555;
-}
-
-.secure-checkout {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 15px;
-    font-size: 0.8rem;
     color: #666;
 }
 
-.secure-checkout img {
-    width: 20px;
-    height: 20px;
+.support-info {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #555;
 }
 
-/* FAQ Mobile */
+.support-info i {
+    color: #2E7D32;
+}
+
+.guarantee {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: #FF5252;
+    font-weight: 600;
+}
+
+/* FAQ */
 .faq {
-    padding: 50px 0;
-    background-color: #FFF5F5;
+    padding: 40px 0;
+    background-color: #F0FFF4;
 }
 
 .faq h2 {
     text-align: center;
     margin-bottom: 30px;
-    font-size: 1.6rem;
-    color: #4a6b3d;
+    font-size: 1.5rem;
+    color: #2E7D32;
 }
 
 .faq-item {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    background: white;
     border-radius: 8px;
     overflow: hidden;
-    background-color: white;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #FF6B6B;
 }
 
 .faq-question {
     width: 100%;
     padding: 15px;
     text-align: left;
+    background: none;
     border: none;
-    background-color: #4CAF50;
-    color: white;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     font-weight: 600;
+    color: #2E7D32;
     cursor: pointer;
-    transition: background-color 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
 }
 
-.faq-answer p {
-    padding: 15px;
-    color: #555;
-    font-size: 0.95rem;
+.faq-question:hover {
+    background-color: #f8f8f8;
 }
 
-/* Footer Mobile */
+.faq-question:after {
+    content: "+";
+    font-size: 1.3rem;
+    color: #FF6B6B;
+}
+
+.faq-question.active:after {
+    content: "-";
+}
+
+.faq-answer {
+    padding: 0 15px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.faq-answer.show {
+    padding: 0 15px 15px;
+    max-height: 500px;
+}
+
+/* Footer */
 footer {
-    background-color: #4a6b3d;
+    background: linear-gradient(135deg, #2E7D32, #1B5E20);
     color: white;
-    padding: 30px 0;
+    text-align: center;
+    padding: 30px 0 20px;
+    font-size: 0.8rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-section {
     text-align: center;
 }
 
-footer p {
+.footer-section h3 {
     margin-bottom: 10px;
-    font-size: 0.8rem;
-    padding: 0 15px;
+    font-size: 1.1rem;
 }
 
-/* Media Queries para Tablets */
-@media (min-width: 600px) {
-    .hero h1 {
-        font-size: 2.4rem;
-    }
-    
-    .benefits-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .recipe-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .offer-benefits {
-        padding: 0;
-    }
+.payment-methods {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 1.5rem;
 }
 
-/* Media Queries para Desktop */
-@media (min-width: 992px) {
-    .container {
-        width: 90%;
-        max-width: 1200px;
-    }
-    
+.copyright p {
+    margin-bottom: 10px;
+}
+
+/* Responsividade para tablets */
+@media (min-width: 768px) {
     .hero {
         padding: 100px 0;
-        background-image: linear-gradient(135deg, rgba(106, 168, 79, 0.8), rgba(56, 134, 89, 0.8)), url('assets/hero-bg.jpg');
     }
     
     .hero h1 {
-        font-size: 2.8rem;
-    }
-    
-    .subtitle {
-        font-size: 1.3rem;
+        font-size: 2.2rem;
     }
     
     .benefits-grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
     
-    .about-content {
-        flex-direction: row;
-    }
-    
-    .about-text {
-        order: 1;
-        text-align: left;
-    }
-    
-    .about-image {
-        order: 2;
-    }
-    
-    .about-ebook h2,
-    .about-ebook p {
-        text-align: left;
-    }
-    
-    .recipe-grid {
+    .preview-grid {
         grid-template-columns: repeat(4, 1fr);
     }
     
     .offer-content {
         flex-direction: row;
-        padding: 40px;
+        align-items: center;
     }
     
-    .offer-image {
-        order: 1;
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-around;
     }
-    
-    .offer-details {
-        order: 2;
+}
+
+/* Esconde menu mobile em desktop */
+@media (min-width: 992px) {
+    .mobile-menu {
+        display: none;
     }
-    
-    .price-container,
-    .offer-benefits li {
-        text-align: left;
-    }
-    
-    .secure-checkout {
-        justify-content: flex-start;
+}
+
+/* Mostra menu mobile em telas pequenas */
+@media (max-width: 991px) {
+    .mobile-menu {
+        display: block;
     }
 }

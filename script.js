@@ -1,114 +1,88 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // FAQ Accordion Mobile
+    // Menu Mobile
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    
+    menuToggle.addEventListener('click', function() {
+        if (mobileNav.style.display === 'flex') {
+            mobileNav.style.display = 'none';
+        } else {
+            mobileNav.style.display = 'flex';
+        }
+    });
+    
+    // Fecha o menu ao clicar em um link
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileNav.style.display = 'none';
+        });
+    });
+    
+    // FAQ Accordion
     const faqQuestions = document.querySelectorAll('.faq-question');
     
     faqQuestions.forEach(question => {
         question.addEventListener('click', () => {
-            const faqItem = question.parentElement;
-            const isActive = faqItem.classList.contains('active');
+            const answer = question.nextElementSibling;
+            const isActive = question.classList.contains('active');
             
-            // Fecha todos os itens primeiro
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.classList.remove('active');
+            // Fecha todas as respostas
+            faqQuestions.forEach(q => {
+                q.classList.remove('active');
+                q.nextElementSibling.classList.remove('show');
             });
             
-            // Abre apenas o item clicado
+            // Abre a resposta clicada se não estiver ativa
             if (!isActive) {
-                faqItem.classList.add('active');
-            }
-        });
-        
-        // Melhorar acessibilidade
-        question.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                question.click();
+                question.classList.add('active');
+                answer.classList.add('show');
             }
         });
     });
     
-    // Smooth scrolling para links - otimizado para mobile
+    // Smooth scrolling para links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 20,
-                    behavior: 'smooth'
-                });
+            // Não aplicar smooth scroll para links externos
+            if (this.getAttribute('href').startsWith('#') && !this.getAttribute('href').includes('mailto')) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
     });
     
-    // Botão de compra - otimizado para touch
-    const buyButton = document.getElementById('buy-button');
+    // Efeito de hover nos botões CTA
+    const ctaButtons = document.querySelectorAll('.cta-button');
     
-    if (buyButton) {
-        // Feedback tátil para mobile
-        buyButton.addEventListener('touchstart', function() {
-            this.style.transform = 'scale(0.95)';
+    ctaButtons.forEach(button => {
+        button.addEventListener('mouseenter', () => {
+            button.style.transform = 'translateY(-3px)';
+            button.style.boxShadow = '0 6px 20px rgba(0, 0, 0, 0.15)';
         });
         
-        buyButton.addEventListener('touchend', function() {
-            this.style.transform = 'scale(1)';
+        button.addEventListener('mouseleave', () => {
+            button.style.transform = 'translateY(0)';
+            button.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
         });
-        
-        buyButton.addEventListener('click', function(e) {
+    });
+    
+    // Redirecionamento para o checkout
+    const buyButtons = document.querySelectorAll('a[href="https://pay.cakto.com.br/3fupip4_518014"]');
+    
+    buyButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
             e.preventDefault();
-            // Simulação de redirecionamento para página de pagamento
-            window.location.href = 'https://exemplo.com/checkout';
+            // Adicione aqui qualquer lógica de rastreamento antes do redirecionamento
+            window.location.href = 'https://pay.cakto.com.br/3fupip4_518014';
         });
-    }
-    
-    // Melhorar performance de animações em mobile
-    let lastScrollY = window.scrollY;
-    let ticking = false;
-    
-    const animateOnScroll = () => {
-        const elements = document.querySelectorAll('.benefit-item, .recipe-item, .offer-content');
-        const windowHeight = window.innerHeight;
-        
-        elements.forEach(element => {
-            const elementPosition = element.getBoundingClientRect().top;
-            const elementVisible = 150;
-            
-            if (elementPosition < windowHeight - elementVisible) {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
-            }
-        });
-        
-        ticking = false;
-    };
-    
-    window.addEventListener('scroll', () => {
-        lastScrollY = window.scrollY;
-        
-        if (!ticking) {
-            window.requestAnimationFrame(animateOnScroll);
-            ticking = true;
-        }
-    });
-    
-    // Inicializar animações
-    window.addEventListener('load', () => {
-        const animatedElements = document.querySelectorAll('.benefit-item, .recipe-item, .offer-content');
-        animatedElements.forEach(element => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(20px)';
-            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        });
-        
-        animateOnScroll();
-    });
-    
-    // Prevenir zoom em inputs em iOS
-    document.addEventListener('gesturestart', function(e) {
-        e.preventDefault();
     });
 });
