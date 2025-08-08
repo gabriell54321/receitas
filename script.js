@@ -38,11 +38,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     recipeItems.forEach(item => {
         item.addEventListener('mouseenter', () => {
-            item.querySelector('h3').style.color = '#4CAF50';
+            item.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.15)';
         });
         
         item.addEventListener('mouseleave', () => {
-            item.querySelector('h3').style.color = '#2a2a2a';
+            item.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.05)';
         });
     });
     
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Animação suave ao rolar a página
     const animateOnScroll = () => {
-        const elements = document.querySelectorAll('.benefit-item, .recipe-item, .testimonial-item');
+        const elements = document.querySelectorAll('.benefit-item, .recipe-item, .offer-content');
         
         elements.forEach(element => {
             const elementPosition = element.getBoundingClientRect().top;
@@ -75,11 +75,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Define as propriedades iniciais para a animação
     window.addEventListener('load', () => {
-        const animatedElements = document.querySelectorAll('.benefit-item, .recipe-item, .testimonial-item');
+        const animatedElements = document.querySelectorAll('.benefit-item, .recipe-item, .offer-content');
         animatedElements.forEach(element => {
             element.style.opacity = '0';
             element.style.transform = 'translateY(20px)';
-            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease';
         });
         
         animateOnScroll();
