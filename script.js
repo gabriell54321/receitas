@@ -1,22 +1,33 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // FAQ Accordion
+    // FAQ Accordion Mobile
     const faqQuestions = document.querySelectorAll('.faq-question');
     
     faqQuestions.forEach(question => {
         question.addEventListener('click', () => {
             const faqItem = question.parentElement;
-            faqItem.classList.toggle('active');
+            const isActive = faqItem.classList.contains('active');
             
-            // Fecha os outros itens
-            faqQuestions.forEach(q => {
-                if (q !== question) {
-                    q.parentElement.classList.remove('active');
-                }
+            // Fecha todos os itens primeiro
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
             });
+            
+            // Abre apenas o item clicado
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        });
+        
+        // Melhorar acessibilidade
+        question.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                question.click();
+            }
         });
     });
     
-    // Smooth scrolling para links
+    // Smooth scrolling para links - otimizado para mobile
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -26,64 +37,78 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                targetElement.scrollIntoView({
+                window.scrollTo({
+                    top: targetElement.offsetTop - 20,
                     behavior: 'smooth'
                 });
             }
         });
     });
     
-    // Efeito de hover nos cards de receitas
-    const recipeItems = document.querySelectorAll('.recipe-item');
-    
-    recipeItems.forEach(item => {
-        item.addEventListener('mouseenter', () => {
-            item.style.boxShadow = '0 15px 30px rgba(0, 0, 0, 0.15)';
-        });
-        
-        item.addEventListener('mouseleave', () => {
-            item.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.05)';
-        });
-    });
-    
-    // Botão de compra - pode ser integrado com seu gateway de pagamento
+    // Botão de compra - otimizado para touch
     const buyButton = document.getElementById('buy-button');
     
     if (buyButton) {
+        // Feedback tátil para mobile
+        buyButton.addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.95)';
+        });
+        
+        buyButton.addEventListener('touchend', function() {
+            this.style.transform = 'scale(1)';
+        });
+        
         buyButton.addEventListener('click', function(e) {
             e.preventDefault();
-            // Aqui você pode adicionar a integração com o gateway de pagamento
-            alert('Ótima escolha! Você será redirecionado para a página de pagamento.');
-            // window.location.href = 'URL_DO_SEU_PAGAMENTO';
+            // Simulação de redirecionamento para página de pagamento
+            window.location.href = 'https://exemplo.com/checkout';
         });
     }
     
-    // Animação suave ao rolar a página
+    // Melhorar performance de animações em mobile
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    
     const animateOnScroll = () => {
         const elements = document.querySelectorAll('.benefit-item, .recipe-item, .offer-content');
+        const windowHeight = window.innerHeight;
         
         elements.forEach(element => {
             const elementPosition = element.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.3;
+            const elementVisible = 150;
             
-            if (elementPosition < screenPosition) {
+            if (elementPosition < windowHeight - elementVisible) {
                 element.style.opacity = '1';
                 element.style.transform = 'translateY(0)';
             }
         });
+        
+        ticking = false;
     };
     
-    // Define as propriedades iniciais para a animação
+    window.addEventListener('scroll', () => {
+        lastScrollY = window.scrollY;
+        
+        if (!ticking) {
+            window.requestAnimationFrame(animateOnScroll);
+            ticking = true;
+        }
+    });
+    
+    // Inicializar animações
     window.addEventListener('load', () => {
         const animatedElements = document.querySelectorAll('.benefit-item, .recipe-item, .offer-content');
         animatedElements.forEach(element => {
             element.style.opacity = '0';
             element.style.transform = 'translateY(20px)';
-            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease';
+            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
         });
         
         animateOnScroll();
     });
     
-    window.addEventListener('scroll', animateOnScroll);
+    // Prevenir zoom em inputs em iOS
+    document.addEventListener('gesturestart', function(e) {
+        e.preventDefault();
+    });
 });
